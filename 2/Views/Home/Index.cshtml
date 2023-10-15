@@ -1,0 +1,56 @@
+﻿<div>
+    <input type="number" id="input"> 
+    <button onclick="fetchGet()">Get</button>
+    <button onclick="fetchPost()">Post</button>
+    <button onclick="fetchPut()">Put</button>
+    <button onclick="fetchDelete()">Delete</button>
+    <p id="result"></p>
+</div>
+<br />
+
+<script>
+    let url = "https://localhost:44305/api/values"
+
+    function getElement(id) {
+        return document.getElementById(id);
+    }
+
+    function setInnerHTML(element, value) {
+        element.innerHTML = value;
+    }
+
+    function fetchGet(event) {
+        $.ajax({
+            url: url,
+            method: 'get',
+            dataType: 'json',
+            success: function (data) {
+                let paragraph = getElement("result");
+                setInnerHTML(paragraph, JSON.parse(data).result);
+            }
+        });
+    }
+
+    function fetchPost(event) {
+        let inputValue = getElement("input").value;
+        $.ajax({
+            url: url + "?RESULT=" + inputValue,
+            method: 'post'
+        });
+    }
+
+    function fetchPut(event) {
+        let inputValue = getElement("input").value;
+        $.ajax({
+            url: url + "?ADD=" + inputValue,
+            method: 'put'
+        });
+    }
+
+    function fetchDelete(event) {
+        $.ajax({
+            url: url,
+            method: 'delete'
+        });
+    }
+</script>
