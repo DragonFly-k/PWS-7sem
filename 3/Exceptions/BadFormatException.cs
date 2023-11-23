@@ -8,14 +8,7 @@ namespace lab3.Exceptions
     public class BadFormatException : BaseException
     {
         public BadFormatException(string formatName) : base("Bad format: " + formatName)
-        {
-
-        }
-
-        public BadFormatException() : base("Bad format: ")
-        {
-
-        }
+        { }
 
         public override int SubCode => 2;
 

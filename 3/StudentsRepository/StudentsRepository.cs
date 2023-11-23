@@ -55,10 +55,7 @@ namespace lab3.StudentsRepository
 
                 foreach (var prop in propertyNames)
                 {
-                    var propertyInfo = student
-                        .GetType()
-                        .GetProperty
-                            (prop, BindingFlags.IgnoreCase | BindingFlags.Public | BindingFlags.Instance);
+                    var propertyInfo = student.GetType().GetProperty(prop, BindingFlags.IgnoreCase | BindingFlags.Public | BindingFlags.Instance);
 
                     if (propertyInfo == null) continue;
 

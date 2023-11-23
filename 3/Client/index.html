@@ -145,24 +145,14 @@
         async function getAllStudents() {
             const response = await fetch(URI + '/api/students');
             const data = await response.json();
-            document.getElementById('Result').innerHTML = JSON.stringify(
-                data,
-                null,
-                2
-            ).replace(/\n/g, '<br />');
+            document.getElementById('Result').innerHTML = JSON.stringify(data,null,2).replace(/\n/g, '<br />');
         }
 
         async function getStudentById() {
             const id = document.getElementById('updateId').value;
-            const response = await fetch(
-                `${URI}/api/students/${id}`
-            );
+            const response = await fetch(`${URI}/api/students/${id}`);
             const data = await response.json();
-            document.getElementById('Result').innerHTML = JSON.stringify(
-                data,
-                null,
-                2
-            );
+            document.getElementById('Result').innerHTML = JSON.stringify(data, null, 2).replace(/\n/g, '<br />');
         }
 
         async function addStudent() {
@@ -170,30 +160,21 @@
             const phone = document.getElementById('updatePhone').value;
             const response = await fetch(URI + '/api/students', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
+                headers: {'Content-Type': 'application/json', },
                 body: JSON.stringify({ Name: name, Phone: phone }),
             });
             const data = await response.json();
-            document.getElementById('Result').innerHTML = JSON.stringify(
-                data,
-                null,
-                2
-            );
+            document.getElementById('Result').innerHTML = JSON.stringify(data, null, 2).replace(/\n/g, '<br />');
         }
 
         async function updateStudent() {
             const id = document.getElementById('updateId').value;
             const name = document.getElementById('updateName').value;
             const phone = document.getElementById('updatePhone').value;
-            const response = await fetch(
-                `${URI}/api/students/${id}`,
+            const response = await fetch(`${URI}/api/students/${id}`,
                 {
                     method: 'PUT',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
+                    headers: {'Content-Type': 'application/json', },
                     body: JSON.stringify({
                         ID: id,
                         Name: name,
@@ -202,27 +183,14 @@
                 }
             );
             const data = await response.json();
-            document.getElementById('Result').innerHTML = JSON.stringify(
-                data,
-                null,
-                2
-            );
+            document.getElementById('Result').innerHTML = JSON.stringify(data, null, 2).replace(/\n/g, '<br />');
         }
 
         async function deleteStudent() {
             const id = document.getElementById('updateId').value;
-            const response = await fetch(
-                `${URI}/api/students/${id}`,
-                {
-                    method: 'DELETE',
-                }
-            );
+            const response = await fetch(`${URI}/api/students/${id}`,{ method: 'DELETE', } );
             const data = await response.json();
-            document.getElementById('Result').innerHTML = JSON.stringify(
-                data,
-                null,
-                2
-            );
+            document.getElementById('Result').innerHTML = JSON.stringify(data, null, 2).replace(/\n/g, '<br />');
         }
 
         async function getAllStudentsWithParams() {
@@ -233,28 +201,19 @@
             const minid = document.getElementById('minid').value;
             const maxid = document.getElementById('maxid').value;
             const like = document.getElementById('like').value;
-            const columns = Array.from(
-                document.getElementById('columns').selectedOptions
-            ).map((opt) => opt.value);
+            const columns = Array.from(document.getElementById('columns').selectedOptions).map((opt) => opt.value);
             const globalike = document.getElementById('globalike').value;
 
-            const queryParams = `format=${format}&limit=${limit}&offset=${offset}&minid=${minid}&maxid=${maxid}&like=${like}&columns=${columns.join(
-                ','
-            )}&globallike=${globalike}&sort=${sort}`;
+            const queryParams = `format=${format}&limit=${limit}&offset=${offset}&minid=${minid}&maxid=${maxid}&like=${like}&columns=${columns.join(',')}&globallike=${globalike}&sort=${sort}`;
 
-            const response = await fetch(
-                `${URI}/api/students?${queryParams}`
-            );
+            const response = await fetch( `${URI}/api/students?${queryParams}`);
 
             if (format === 'xml') {
                 const data = await response.text();
-                document.getElementById('Result').innerHTML =
-                    '<textarea>' + data + '</textarea>';
+                document.getElementById('Result').innerHTML = '<textarea>' + data + '</textarea>';
             } else {
                 const students = await response.json();
-
-                document.getElementById('Result').innerHTML =
-                    JSON.stringify(students, null, 2);
+                document.getElementById('Result').innerHTML = JSON.stringify(students, null, 2).replace(/\n/g, '<br />');
             }
         }
     </script>

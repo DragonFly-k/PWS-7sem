@@ -8,9 +8,7 @@ namespace lab3.Exceptions
     public class StudentNotFoundException : BaseException
     {
         public StudentNotFoundException() : base("Student not found")
-        {
-
-        }
+        {}
 
         public override int SubCode => 1;
 

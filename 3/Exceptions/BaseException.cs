@@ -15,11 +15,7 @@ namespace lab3.Exceptions
         public abstract string Description { get; }
 
         public BaseException(string message) : base(message)
-        {
-        }
+        { }
 
-        public BaseException()
-        {
-        }
     }
 }

@@ -29,8 +29,7 @@ namespace lab3.Exceptions
                             SubCode = -1,
                             Description = "Internal server error"
                         }),
-                        Encoding.UTF8,
-                        "application/json"
+                        Encoding.UTF8,"application/json"
                     )
                 };
             };

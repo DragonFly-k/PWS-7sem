@@ -3,19 +3,12 @@ using lab3.Models;
 using lab3.Serializer;
 using lab3.Student;
 using lab3.StudentsHttp;
-using lab3.StudentsRepository;
 using Microsoft.Ajax.Utilities;
-using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Text;
-using System.Web;
 using System.Web.Http;
-using System.Xml.Serialization;
 
 namespace lab3.Controllers
 {
